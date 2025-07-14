@@ -16,7 +16,7 @@ public class U5w1d1Application {
 
         Menu m1 = context.getBean(Menu.class);
 
-        m1.printmenu();
+        m1.printMenu();
 
         m1.printToppings();
     }

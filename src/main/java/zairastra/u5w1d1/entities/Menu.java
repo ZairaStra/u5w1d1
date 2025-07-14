@@ -16,7 +16,8 @@ public class Menu {
     public List<Topping> toppings;
 
     // aggiungo il numero per poter ordinare da scanner
-    public void printmenu() {
+    public void printMenu() {
+        System.out.println("Benvenuto nella nostra pizzeria! Cosa vuoi ordinare?");
         for (int i = 0; i < pizze.size(); i++) {
             Pizza p = pizze.get(i);
             System.out.println((i + 1) + ". " + p.toString());
