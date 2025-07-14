@@ -59,9 +59,36 @@ public class ConfigClass {
     }
 
     @Bean
+    public Pizza margheritissima() {
+        Pizza pizza = new Pizza("mozzarella", "pomodoro", 700, 6, new ArrayList<>()) {
+        };
+        pizza.addTopping(bufala());
+        pizza.addTopping(basilico());
+        pizza.getTotalCalories();
+        pizza.getTotalPrice();
+        return pizza;
+    }
+
+
+//    @Bean
+//    public Menu menu() {
+//        List<Pizza> pizze = List.of(margherita(), capricciosa(), diavola(), primavera(), melanzane());
+//
+//        List<Topping> toppings = List.of(prosciutto(), bufala(), basilico(), acciughe());
+//        return new Menu(pizze, toppings);
+//    }
+
+    @Bean
     public Menu menu() {
-        List<Pizza> pizze = List.of(margherita(), capricciosa(), diavola(), primavera(), melanzane());
+        //non funziona nemmeno se la aggiungo a mano alla lista, ovviamente
+        //perchè il toString è sempre quello
+        List<Pizza> pizze = new ArrayList<>(List.of(margherita(), capricciosa(), diavola(), primavera(), melanzane(), margheritissima()));
+        //nel sout usa il toString di Margherita, che non si adatta alle aggiunte:
+        //non cambia il nome né la somma di prezzo e calorie
+        //però aggiunge alla lista
+//        pizze.add(margheritissima());
         List<Topping> toppings = List.of(prosciutto(), bufala(), basilico(), acciughe());
         return new Menu(pizze, toppings);
     }
+
 }
