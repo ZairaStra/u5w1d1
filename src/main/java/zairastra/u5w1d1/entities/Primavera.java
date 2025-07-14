@@ -12,21 +12,15 @@ public class Primavera extends Pizza {
     public String rucola;
     public String grana;
 
-    public Primavera(String mozzarella, String pomodoro, double calorie, List<Topping> extraTopping, double prezzo, String rucola, String grana) {
-        super(mozzarella, pomodoro, calorie, prezzo, extraTopping);
+    public Primavera(String mozzarella, String pomodoro, double calorieBase, List<Topping> extraTopping, double prezzoBase, String rucola, String grana) {
+        super(mozzarella, pomodoro, calorieBase, prezzoBase, extraTopping);
         this.rucola = rucola;
         this.grana = grana;
     }
 
     @Override
     public String toString() {
-        return "Primavera{" +
-                "rucola='" + rucola + '\'' +
-                ", grana='" + grana + '\'' +
-                ", mozzarella='" + mozzarella + '\'' +
-                ", pomodoro='" + pomodoro + '\'' +
-                ", calorie=" + calorie +
-                ", prezzo=" + prezzo +
-                '}';
+        return "Primavera: " + pomodoro + ", " + mozzarella + ", " + rucola + ", " + grana + "; calorie: " + calorieBase + "; prezzo: " + prezzoBase + " €";
     }
+
 }

@@ -15,8 +15,8 @@ public class Capricciosa extends Pizza {
     public String olive;
 
 
-    public Capricciosa(String mozzarella, String pomodoro, double calorie, double prezzo, List<Topping> extraTopping, String prosciutto, String carciofini, String funghi, String olive) {
-        super(mozzarella, pomodoro, calorie, prezzo, extraTopping);
+    public Capricciosa(String mozzarella, String pomodoro, double calorieBase, double prezzoBase, List<Topping> extraTopping, String prosciutto, String carciofini, String funghi, String olive) {
+        super(mozzarella, pomodoro, calorieBase, prezzoBase, extraTopping);
         this.prosciutto = prosciutto;
         this.carciofini = carciofini;
         this.funghi = funghi;
@@ -25,15 +25,6 @@ public class Capricciosa extends Pizza {
 
     @Override
     public String toString() {
-        return "Capricciosa{" +
-                "prosciutto='" + prosciutto + '\'' +
-                ", carciofini='" + carciofini + '\'' +
-                ", funghi='" + funghi + '\'' +
-                ", olive='" + olive + '\'' +
-                ", mozzarella='" + mozzarella + '\'' +
-                ", pomodoro='" + pomodoro + '\'' +
-                ", calorie=" + calorie +
-                ", prezzo=" + prezzo +
-                '}';
+        return "Capricciosa: " + pomodoro + ", " + mozzarella + ", " + prosciutto + ", " + carciofini + ", " + funghi + ", " + olive + "; calorie: " + calorieBase + "; prezzo: " + prezzoBase + " €";
     }
 }

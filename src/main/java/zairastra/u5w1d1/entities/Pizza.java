@@ -3,7 +3,6 @@ package zairastra.u5w1d1.entities;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +10,30 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@ToString
 
 public abstract class Pizza {
+
     protected String mozzarella;
     protected String pomodoro;
-    protected double calorie;
-    protected double prezzo;
+    protected double calorieBase;
+    protected double prezzoBase;
     protected List<Topping> extraTopping = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Margherita: " + mozzarella + ", " + pomodoro + "; calorie: " + calorieBase + "; prezzo: " + prezzoBase + " €";
+    }
 
     public void addTopping(Topping topping) {
         extraTopping.add(topping);
-        this.calorie += topping.getCalorie();
-        this.prezzo += topping.getPrezzo();
-        System.out.println("Gli ingredienti aggiunti sono: " + extraTopping + ", il conteggio delle calorie aggiornato è: " + this.calorie + ", il prezzo aggiornato è: " + this.prezzo);
+        System.out.println("Hai aggiunto l'ingrediente: " + topping.getName());
+    }
+
+    public double getTotalPrice() {
+        return prezzoBase + extraTopping.stream().mapToDouble(Topping::getPrezzo).sum();
+    }
+
+    public double getTotalCalories() {
+        return calorieBase + extraTopping.stream().mapToDouble(Topping::getCalorie).sum();
     }
 }

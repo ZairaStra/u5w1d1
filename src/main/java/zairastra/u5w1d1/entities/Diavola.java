@@ -10,8 +10,13 @@ import java.util.List;
 public class Diavola extends Pizza {
     public String salame;
 
-    public Diavola(String mozzarella, String pomodoro, double calorie, double prezzo, List<Topping> extraTopping, String salame) {
-        super(mozzarella, pomodoro, calorie, prezzo, extraTopping);
+    public Diavola(String mozzarella, String pomodoro, double calorieBase, double prezzoBase, List<Topping> extraTopping, String salame) {
+        super(mozzarella, pomodoro, calorieBase, prezzoBase, extraTopping);
         this.salame = salame;
+    }
+
+    @Override
+    public String toString() {
+        return "Diavola: " + pomodoro + ", " + mozzarella + ", " + salame + "; calorie: " + calorieBase + "; prezzo: " + prezzoBase + " €";
     }
 }
